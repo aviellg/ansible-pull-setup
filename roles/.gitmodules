@@ -1,3 +1,0 @@
-[submodule "ansible-role-setup"]
-	path = ansible-role-setup
-	url = git@github.com:aviellg/ansible-role-setup.git
