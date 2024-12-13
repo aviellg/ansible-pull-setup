@@ -1,5 +1,5 @@
 --- 
-- hosts: host
+- hosts: local
   gather_facts: true
   vars:
     need_sudo: false
