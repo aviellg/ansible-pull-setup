@@ -7,7 +7,7 @@
 
   tasks:
     - name: Install required roles
-      ansible.builtin.shell: ansible-galaxy install -r requirements.yml
+      ansible.builtin.shell: ansible-galaxy install -r requirements.yml -f
       args:
         creates: /etc/ansible/roles/ansible-role-setup
 
