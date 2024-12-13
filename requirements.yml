@@ -1,0 +1,2 @@
+- name: ansible-role-setup
+  src: https://github.com/aviellg/ansible-role-setup
