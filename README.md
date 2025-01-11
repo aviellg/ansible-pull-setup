@@ -1,5 +1,35 @@
-#!/bin/bash # Update and upgrade the system apt-get update -y apt-get upgrade -y # Install Git and curl apt-get install -y git curl # Install Ansible apt-get install -y ansible # Execute ansible-pull with your configuration ansible-pull -U https://github.com/aviellg/ansible-pull-setup.git --force
+## Bash Script for Update, Upgrade, and Ansible Pull
 
+Below is a Bash script to update and upgrade your system, install Ansible, Git, and curl, and then run `ansible-pull`:
+
+```bash
+#!/bin/bash
+
+# Function to check if a command needs to be run with sudo
+run_with_sudo_if_needed() {
+  local command="$@"
+  
+  if [ "$EUID" -ne 0 ]; then
+    echo "Running with sudo: $command"
+    sudo bash -c "$command"
+  else
+    echo "Running without sudo: $command"
+    bash -c "$command"
+  fi
+}
+
+# Function to perform the tasks
+perform_tasks() {
+  run_with_sudo_if_needed "apt-get update"
+  run_with_sudo_if_needed "apt-get upgrade -y"
+  run_with_sudo_if_needed "apt-get install -y ansible git curl"
+  run_with_sudo_if_needed "ansible-pull -U https://github.com/aviellg/ansible-pull-setup.git"
+}
+
+perform_tasks
+
+exit 0
+```
 # Ansible Pull Setup
 
 This repository contains an Ansible setup to configure your local machine using `ansible-pull`.
