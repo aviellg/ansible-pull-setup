@@ -1,4 +1,4 @@
-to run the configuration localy  : sudo apt update && sudo apt upgrade -y && sudo apt install -y pipx && pipx install --include-deps ansible && pipx inject --include-apps ansible argcomplete && python3 -m pipx ensurepath && ansible --version && ansible-pull -U https://github.com/aviellg/ansible-pull-setup.git --force
+#!/bin/bash # Update and upgrade the system apt-get update -y apt-get upgrade -y # Install Git and curl apt-get install -y git curl # Install Ansible apt-get install -y ansible # Execute ansible-pull with your configuration ansible-pull -U https://github.com/aviellg/ansible-pull-setup.git --force
 
 # Ansible Pull Setup
 
